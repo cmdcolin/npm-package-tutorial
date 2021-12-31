@@ -1,0 +1,10 @@
+{
+  "include": ["src"],
+  "compilerOptions": {
+    "declaration": true, // generate .d.ts files
+    "sourceMap": true, // generate source map
+    "outDir": "dist", // output compiled js, d.ts, and source map to dist folder
+    "strict": true,
+    "esModuleInterop": true
+  }
+}
