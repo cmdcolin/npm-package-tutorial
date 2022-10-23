@@ -3,16 +3,21 @@
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
+  "module": "esm/index.js",
   "files": [
-    "dist"
+    "dist",
+    "esm",
+    "src"
   ],
   "scripts": {
-    "clean": "rimraf dist",
+    "clean": "rimraf dist esm",
     "prebuild": "npm run clean",
     "preversion": "npm run build",
     "postversion": "git push --follow-tags",
     "test": "jest",
-    "build": "tsc"
+    "build:esm": "tsc --target esm2018 --outDir esm",
+    "build:cjs": "tsc --target esm2015 --module commonjs --outDir dist",
+    "build": "npm run build:esm && npm run build:cjs"
   },
   "author": "Colin",
   "license": "ISC",
